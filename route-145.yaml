@@ -1,0 +1,25 @@
+- route:
+    id: route-9e42
+    from:
+      id: from-52f6
+      uri: timer
+      parameters:
+        period: "5000"
+        timerName: banks
+      steps:
+        - to:
+            id: to-57d1
+            uri: http
+            parameters:
+              httpUri: https://random-data-api.com/api/v2/banks?response_type=xml
+        - step:
+            id: kaoto-datamapper-2411
+            steps:
+              - to:
+                  id: kaoto-datamapper-xslt-6474
+                  uri: xslt-saxon:route-9e42-kaoto-datamapper-2411.xsl
+                  parameters: {}
+        - log:
+            id: log-156f
+            message: ${prettyBody}
+    nodePrefixId: route-ecf

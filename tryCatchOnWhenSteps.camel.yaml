@@ -1,0 +1,21 @@
+- from:
+    uri: "timer:start"
+    steps:
+      - doTry:
+         steps:
+           - throwException:
+               exceptionType: "java.io.IOException"
+               message: "Test onWhen steps"
+         doCatch:
+           - exception: 
+               - "java.io.FileNotFoundException"
+               - "java.io.IOException"
+             onWhen:
+               simple: "${body} == null"
+               steps:
+                 - to: "log:on-when-steps"
+             steps:
+               - to: "log:io-error"
+         doFinally:
+           steps:
+             - to: "log:finally"

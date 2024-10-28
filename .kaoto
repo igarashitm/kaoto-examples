@@ -1,0 +1,41 @@
+{
+	"route-3984-kaoto-datamapper-5835": {
+		"sourceBody": {
+			"type": "XML Schema",
+			"filePath": [
+				"xsd/Account.xsd"
+			]
+		},
+		"sourceParameters": {},
+		"targetBody": {
+			"type": "XML Schema",
+			"filePath": [
+				"xsd/hello.xsd"
+			]
+		},
+		"xsltPath": "route-3984-kaoto-datamapper-5835.xsl"
+	},
+	"route-6400-kaoto-datamapper-2200": {
+		"sourceBody": {
+			"type": "XML Schema",
+			"filePath": [
+				"xsd/Cart.xsd"
+			]
+		},
+		"sourceParameters": {
+			"account": {
+				"type": "XML Schema",
+				"filePath": [
+					"xsd/Account.xsd"
+				]
+			}
+		},
+		"targetBody": {
+			"type": "XML Schema",
+			"filePath": [
+				"xsd/ShipOrder.xsd"
+			]
+		},
+		"xsltPath": "route-6400-kaoto-datamapper-2200.xsl"
+	}
+}

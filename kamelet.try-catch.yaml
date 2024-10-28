@@ -1,0 +1,48 @@
+apiVersion: camel.apache.org/v1alpha1
+kind: Kamelet
+metadata:
+  annotations:
+  labels:
+    camel.apache.org/kamelet.type: action
+  name: integration-action
+spec:
+  definition:
+    title: 'null'
+    description: 'null'
+    properties: {}
+  dependencies:
+  - camel:core
+  - camel:asterisk
+  template:
+    from:
+      uri: asterisk:null
+      steps:
+      - do-try:
+          steps:
+          - set-property:
+              name: sdfasdf
+              simple: ola ke ase
+          do-catch:
+          - exception:
+            - asdfasdf
+            on-when:
+            steps:
+            - remove-header:
+                name: ola ke ase
+          - exception:
+            - patatas
+            on-when:
+              simple: ''
+            steps: []
+          - exception:
+            - bra
+            on-when:
+              jq: field3 == "foo"
+            steps:
+            - remove-header:
+                name: ola ke ase
+          do-finally:
+            steps:
+            - set-header:
+                name: asdf
+                simple: ola ke ase

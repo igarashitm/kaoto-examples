@@ -1,0 +1,27 @@
+- route:
+    id: route-3984
+    from:
+      uri: timer:yaml
+      parameters:
+        period: "3000"
+      steps:
+        - setBody:
+            expression:
+              simple:
+                expression: |-
+                  <Account>
+                    <Name>Tomo</Name>
+                    <Address>314 Littleton Rd</Address>
+                    <City>Westford</City>
+                    <Country>US</Country>
+                  </Account>
+        - step:
+            id: kaoto-datamapper-5835
+            steps:
+              - to:
+                  id: kaoto-datamapper-xslt-1995
+                  uri: xslt-saxon:route-3984-kaoto-datamapper-5835.xsl
+                  parameters: {}
+        - log:
+            id: log-1149
+            message: ${body}
