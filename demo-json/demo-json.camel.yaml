@@ -24,11 +24,11 @@
             simple:
               expression: ${messageTimestamp}
         - step:
-            id: kaoto-datamapper-52d989e5
+            id: kaoto-datamapper-2c993637
             steps:
               - to:
-                  id: kaoto-datamapper-xslt-3637
-                  uri: xslt-saxon:kaoto-datamapper-52d989e5.xsl
+                  id: kaoto-datamapper-xslt-1240
+                  uri: xslt-saxon:kaoto-datamapper-2c993637.xsl
                   parameters:
                     failOnNullBody: false
         - log: ${body}

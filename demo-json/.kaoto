@@ -1,5 +1,5 @@
 {
-	"kaoto-datamapper-52d989e5": {
+	"kaoto-datamapper-2c993637": {
 		"sourceBody": {
 			"type": "Primitive"
 		},
@@ -27,6 +27,6 @@
 				"schema/shiporder.schema.json"
 			]
 		},
-		"xsltPath": "kaoto-datamapper-52d989e5.xsl"
+		"xsltPath": "kaoto-datamapper-2c993637.xsl"
 	}
 }
