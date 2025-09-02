@@ -22,7 +22,7 @@
             description: orderSequence
             name: orderSequence
             simple:
-              expression: ${messageTimestamp}
+              expression: ${date:now:YYYYMMDDHHMMssSSS}
         - step:
             id: kaoto-datamapper-2c993637
             steps:
