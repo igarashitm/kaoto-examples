@@ -1,8 +1,8 @@
 {
     "OrderId": "ORD-acc001-01",
-    "OrderPerson": "acc001:Tarou",
+    "OrderPerson": "acc001:Tomo",
     "ShipTo": {
-        "Name": "Tarou",
+        "Name": "Tomo",
         "Address": "314 Littleton Rd",
         "City": "Westford",
         "State": "Massachusetts",

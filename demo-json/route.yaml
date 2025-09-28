@@ -1,0 +1,108 @@
+- route:
+    id: xml-to-json
+    from:
+      uri: direct:xml-to-json
+      steps:
+        - convertBodyTo:
+            id: convertBodyTo-3430
+            description: Cart XML
+            type: org.w3c.dom.Document
+        - setVariable:
+            id: setVariable-3459-1016
+            description: Account XML
+            constant:
+              expression: resource:classpath:data/xml/Account.xml
+              resultType: org.w3c.dom.Document
+            name: Account
+        - setVariable:
+            id: setVariable-7406-3727
+            description: OrderSequence
+            name: OrderSequence
+            simple:
+              expression: ${date:now:YYYYMMDDHHMMssSSS}
+        - step:
+            id: kaoto-datamapper-2299a9ac
+            steps:
+              - to:
+                  id: kaoto-datamapper-xslt-1150
+                  uri: xslt-saxon:kaoto-datamapper-2299a9ac.xsl
+                  parameters:
+                    failOnNullBody: false
+        - log: ${body}
+- route:
+    id: json-to-xml
+    from:
+      uri: direct:json-to-xml
+      steps:
+        - setVariable:
+            id: setVariable-2782-5638
+            description: Cart JSON
+            name: Cart
+            simple:
+              expression: ${body}
+              resultType: java.lang.String
+        - setBody:
+            id: setBody-3125
+            simple:
+              expression: ${null}
+        - setVariable:
+            id: setVariable-3459-1481
+            description: Account JSON
+            constant:
+              expression: resource:classpath:data/json/account.json
+              resultType: java.lang.String
+            name: Account
+        - setVariable:
+            id: setVariable-7406-3585
+            description: OrderSequence
+            name: OrderSequence
+            simple:
+              expression: ${date:now:YYYYMMDDHHMMssSSS}
+        - step:
+            id: kaoto-datamapper-1e24d814
+            description: JSON to XML
+            steps:
+              - to:
+                  id: kaoto-datamapper-xslt-9415
+                  uri: xslt-saxon:kaoto-datamapper-1e24d814.xsl
+                  parameters:
+                    failOnNullBody: false
+        - log: ${body}
+- route:
+    id: json-to-json
+    from:
+      uri: direct:json-to-json
+      steps:
+        - setVariable:
+            id: setVariable-2782
+            description: Cart JSON
+            name: Cart
+            simple:
+              expression: ${body}
+              resultType: java.lang.String
+        - setBody:
+            id: setBody-3132
+            description: Set Body Null
+            simple:
+              expression: ${null}
+        - setVariable:
+            id: setVariable-3459
+            description: Account JSON
+            constant:
+              expression: resource:classpath:data/json/account.json
+            name: Account
+        - setVariable:
+            id: setVariable-7406
+            description: orderSequence
+            name: OrderSequence
+            simple:
+              expression: ${date:now:YYYYMMDDHHMMssSSS}
+        - step:
+            id: kaoto-datamapper-2c993637
+            steps:
+              - to:
+                  id: kaoto-datamapper-xslt-1240
+                  uri: xslt-saxon:kaoto-datamapper-2c993637.xsl
+                  parameters:
+                    failOnNullBody: false
+        - log: ${body}
