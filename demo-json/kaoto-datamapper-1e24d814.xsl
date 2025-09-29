@@ -33,7 +33,7 @@
                     </xsl:when>
                     <xsl:otherwise>
                         <Name>
-                            <xsl:value-of select="Customer"/>
+                            <xsl:value-of select="'Customer'"/>
                         </Name>
                     </xsl:otherwise>
                 </xsl:choose>
