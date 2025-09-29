@@ -32,19 +32,15 @@
 - route:
     id: json-to-xml
     from:
-      uri: direct:json-to-xml
+      uri: direct
+      parameters:
+        name: json-to-xml
       steps:
-        - setVariable:
-            id: setVariable-2782-5638
+        - convertVariableTo:
+            id: convertVariableTo-2102
             description: Cart JSON
             name: Cart
-            simple:
-              expression: ${body}
-              resultType: java.lang.String
-        - setBody:
-            id: setBody-3125
-            simple:
-              expression: ${null}
+            type: java.lang.String
         - setVariable:
             id: setVariable-3459-1481
             description: Account JSON
@@ -68,6 +64,7 @@
                   parameters:
                     failOnNullBody: false
         - log: ${body}
+      variableReceive: Cart
 - route:
     id: json-to-json
     from:
